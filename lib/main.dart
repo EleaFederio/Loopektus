@@ -1,5 +1,9 @@
+import 'dart:convert';
+
+import 'package:esp2688/logix/LoopSwitcher.dart';
 import 'package:esp2688/widgets/pedalLoop.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' as rootBundle;
 
 void main() {
   runApp(const MyApp());
@@ -30,27 +34,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
   @override
   Widget build(BuildContext context) {
+
+    ReadLoopSwitcher();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const <Widget>[
-            PedalLoop(),
-            PedalLoop(),
-            PedalLoop(),
-            PedalLoop(),
-            PedalLoop(),
-            PedalLoop(),
-            PedalLoop(),
-            PedalLoop()
-          ],
-        ),
-      ),
+      body: Container()
+
     );
+  }
+
+  void ReadLoopSwitcher() async {
+    final jsonData = await rootBundle.rootBundle.loadString('json/loop_switcher.json');
+    final list = json.decode(jsonData) ;
+    print(list);
   }
 }

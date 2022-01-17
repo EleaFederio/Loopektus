@@ -1,0 +1,11 @@
+{
+  "loopSwitcher" : {
+    "bank" : {
+      "efxLoo1" : "clean",
+      "efxLoo2" : "compress",
+      "efxLoo3" : "crunch",
+      "efxLoo4" : "distortion",
+      "efxLoo5" : "solo"
+    }
+  }
+}
